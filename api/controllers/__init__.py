@@ -1,0 +1,2 @@
+from controllers.alumno_controller import alumno_bp
+from controllers.auth_controller import auth_bp

@@ -1,0 +1,2 @@
+from repositories.alumno_repository import AlumnoRepository
+from repositories.usuario_repository import UsuarioRepository
