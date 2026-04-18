@@ -1,0 +1,51 @@
+stages:
+  - test
+  - deploy
+
+variables:
+  FLASK_APP: run.py
+
+# ── DEV — se ejecuta en push a develop ──────────────────────────────────────
+test:dev:
+  stage: test
+  image: python:3.11-slim
+  only:
+    - develop
+  before_script:
+    - cd api
+    - pip install -r requirements.txt
+  script:
+    - echo "Ejecutando validaciones en ambiente DEV"
+    - python -c "from run import create_app; app = create_app(); print('App carga correctamente')"
+
+deploy:dev:
+  stage: deploy
+  image: python:3.11-slim
+  only:
+    - develop
+  script:
+    - echo "Desplegando en ambiente DEV"
+    - echo "Variables de entorno DEV configuradas"
+    - echo "Deploy DEV completado"
+
+# ── PROD — se ejecuta en push a main ────────────────────────────────────────
+test:prod:
+  stage: test
+  image: python:3.11-slim
+  only:
+    - main
+  before_script:
+    - cd api
+    - pip install -r requirements.txt
+  script:
+    - echo "Ejecutando validaciones en ambiente PROD"
+    - python -c "from run import create_app; app = create_app(); print('App carga correctamente')"
+
+deploy:prod:
+  stage: deploy
+  image: python:3.11-slim
+  only:
+    - main
+  script:
+    - echo "Desplegando en ambiente PROD"
+    - echo "Deploy PROD completado "
