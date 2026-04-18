@@ -24,8 +24,7 @@ def create_app():
     Swagger(app, template={
         "swagger": "2.0",
         "info": {
-            "title": "API Gestión de Alumnos",
-            "description": "API REST para gestión de alumnos — Examen Backend 2026",
+            "title": "API Examen",
             "version": "1.0.0",
         },
         "securityDefinitions": {
