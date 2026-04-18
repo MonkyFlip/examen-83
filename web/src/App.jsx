@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 
-const API = 'http://18.191.166.111/api'; //http://18.191.166.111:5000/api
+const API = ''; //http://18.191.166.111:5000/api
 
 /* ── Global styles ─────────────────────────────────────────────────────────── */
 const css = `
